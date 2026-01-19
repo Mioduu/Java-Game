@@ -10,7 +10,7 @@ public class Config {
 
     static {
         try {
-            props.load(new FileInputStream("2DJava/resources/config.properties"));
+            props.load(new FileInputStream("resources/config.properties"));
         } catch (Exception e) {
             System.out.println("Nie można odnaleźć pliku");
         }

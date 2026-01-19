@@ -1,18 +1,24 @@
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class Game extends JFrame {
     public static void main(String arg[]) {
-        JFrame frame = new JFrame("2D Game"); // Tytuł okna
-        JLabel label = new JLabel("Skibidi"); // Napis chwilowy
+        // Inicjacja
+        JFrame window = new JFrame("2D Game"); // Tytuł okna
 
-        frame.add(label); // Dodanie klatki do gry
-        frame.setSize(Config.getInt("width"), Config.getInt("height")); // Loader + dane z kluczy config
-        frame.setResizable(false); // Resizable okno (nuh uh)
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Okno wylacza sie fajnie
+        // Panel
+        ScreenPanel screenPanel = new ScreenPanel(); // Utworzenie panelu
 
-        frame.setVisible(true); // Tak.
+        window.add(screenPanel); // Dodanie panelu do okna
+        window.pack(); // Dopasowanie okna do rozmiarów w panelu
 
+        // Operacje na oknie
+        window.setLocationRelativeTo(null); // Wysrodkowanie okna
+        window.setResizable(false); // Resizable okno (nuh uh)
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Okno wylacza sie fajnie
+        window.setVisible(true); // Tak.
+
+        // Odpalenie gry
+        screenPanel.startGame();
     }
 }
